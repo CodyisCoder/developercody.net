@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cody</title>
+    <title>Cody's Web</title>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 
@@ -18,9 +19,10 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             text-align: center;
-            overflow: hidden;
+            overflow: auto;
+            height: 100vh;
+            padding-bottom: 20px;
             animation: fadeIn 1.5s ease-in-out;
         }
 
@@ -65,7 +67,7 @@
         }
 
         h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 700;
             margin-bottom: 10px;
             background: linear-gradient(90deg, red, orange, yellow, green, blue);
@@ -90,7 +92,7 @@
         }
 
         p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 300;
             text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
         }
@@ -132,6 +134,30 @@
         .button:active {
             transform: scale(1) rotate(0deg);
         }
+
+        .extra-box {
+            margin-top: 30px;
+            padding: 15px;
+            width: 80%;
+            max-width: 350px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .extra-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -142,7 +168,7 @@
                 alt="Cody's Profile Picture" class="profile-img">
         </a>
         <h1>Howdy, I'm Cody!</h1>
-        <p>I'm a programmer who loves creating pointless mods for games like Gorilla Tag, and Minecraft! I strive in C#,
+        <p>I'm a programmer who loves creating pointless mods for VR Games, and Minecraft! I strive in C#,
             HTML, JS, CSS, and Java. Look at my links below!</p>
         <div class="buttons">
             <a href="https://www.youtube.com/@CoolCoderCody" class="button" target="_blank">YouTube</a>
@@ -151,6 +177,14 @@
             <a href="https://discord.gg/jsyWpJEkQ6" class="button" target="_blank">Discord</a>
         </div>
     </div>
+
+    <div class="extra-box">
+        <h2>More Cool Stuff</h2>
+        <div class="button-container">
+            <button class="button" onclick="window.location.href='/Games'">Games</button>
+        </div>
+    </div>
+
 </body>
 
 </html>
