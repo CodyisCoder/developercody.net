@@ -1,13 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cody</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 8px solid white;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, purple, red);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 10s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        p {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 35px;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 10rem;
+            height: 5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(45deg, #ff0000, #ff7300);
+            border: 2px solid white;
+            border-radius: 10px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.8);
+        }
+
+        .button:hover {
+            transform: scale(1.2);
+            background: linear-gradient(45deg, #ff7300, #ff0000);
+            box-shadow: 0px 0px 15px rgba(255, 0, 0, 1);
+        }
+    </style>
 </head>
+
 <body>
-    <h1>
-        Skibidi
-    </h1>
+    <div class="container">
+        <img src="Cody.jpg" alt="Cody's Profile Picture" class="profile-img">
+        <h1>Hiya, I'm Cody!</h1>
+        <p>I'm a programmer who loves creating pointless mods for games like Gorilla Tag and Minecraft! I strive in C#,
+            HTML, JS, CSS, and Java. Look at my links below!</p>
+        <div class="buttons">
+            <a href="https://www.youtube.com/@CoolCoderCody" class="button" target="_blank">YouTube</a>
+            <a href="https://github.com/CodyisCoder" class="button" target="_blank">GitHub (Work)</a>
+            <a href="https://github.com/developer-cody" class="button" target="_blank">GitHub (Modding)</a>
+            <a href="https://discord.gg/jsyWpJEkQ6" class="button" target="_blank">Discord</a>
+        </div>
+    </div>
 </body>
+
 </html>
