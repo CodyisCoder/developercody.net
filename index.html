@@ -21,31 +21,55 @@
             height: 100vh;
             text-align: center;
             overflow: hidden;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .container {
             padding: 40px;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 20px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             max-width: 600px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.4);
         }
 
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 8px solid white;
+            border: 6px solid white;
             margin-bottom: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .profile-img:hover {
+            transform: rotate(10deg) scale(1.1);
         }
 
         h1 {
             font-size: 4rem;
             font-weight: 700;
             margin-bottom: 10px;
-            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, purple, red);
-            background-size: 300% 300%;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue);
+            background-size: 400% 400%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: rainbow 10s linear infinite;
@@ -68,12 +92,15 @@
         p {
             font-size: 1.5rem;
             font-weight: 300;
+            text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
         }
 
         .buttons {
             margin-top: 20px;
             display: flex;
-            gap: 35px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
         }
 
         .button {
@@ -81,34 +108,40 @@
             justify-content: center;
             align-items: center;
             width: 10rem;
-            height: 5rem;
-            font-size: 1rem;
+            height: 4rem;
+            font-size: 1.2rem;
             font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
             color: white;
-            background: linear-gradient(45deg, #ff0000, #ff7300);
+            background: linear-gradient(45deg, #1100f8, #00a2ff);
             border: 2px solid white;
             border-radius: 10px;
-            transition: 0.3s;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
             position: relative;
             overflow: hidden;
-            box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.8);
+            box-shadow: 0px 0px 10px rgba(0, 140, 255, 0.8);
         }
 
         .button:hover {
-            transform: scale(1.2);
-            background: linear-gradient(45deg, #ff7300, #ff0000);
-            box-shadow: 0px 0px 15px rgba(255, 0, 0, 1);
+            transform: scale(1.15) rotate(3deg);
+            background: linear-gradient(45deg, #1100f8, #00a2ff);
+            box-shadow: 0px 0px 20px rgba(0, 140, 255, 0.8);
+        }
+
+        .button:active {
+            transform: scale(1) rotate(0deg);
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <img src="https://github.com/CodyisCoder/developercody.net/blob/main/Cody.jpg?raw=true"
-            alt="Cody's Profile Picture" class="profile-img">
-        <h1>Hiya, I'm Cody!</h1>
+        <a href="https://github.com/CodyisCoder" target="_blank">
+            <img src="https://github.com/CodyisCoder/developercody.net/blob/main/Cody.jpg?raw=true"
+                alt="Cody's Profile Picture" class="profile-img">
+        </a>
+        <h1>Howdy, I'm Cody!</h1>
         <p>I'm a programmer who loves creating pointless mods for games like Gorilla Tag and Minecraft! I strive in C#,
             HTML, JS, CSS, and Java. Look at my links below!</p>
         <div class="buttons">
