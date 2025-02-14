@@ -9,8 +9,13 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: 'Poppins', sans-serif;
             background: url('https://github.com/CodyisCoder/developercody.net/blob/main/bg.jpg?raw=true') no-repeat center center fixed;
             background-size: cover;
@@ -153,10 +158,10 @@
             box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
         }
 
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
+        footer {
+            margin-top: 40px;
+            font-size: 1rem;
+            color: white;
         }
     </style>
 </head>
@@ -168,8 +173,8 @@
                 alt="Cody's Profile Picture" class="profile-img">
         </a>
         <h1>Howdy, I'm Cody!</h1>
-        <p>I'm a programmer who loves creating pointless mods for VR Games, and Minecraft! I strive in C#,
-            HTML, JS, CSS, and Java. Look at my links below!</p>
+        <p>I'm a programmer who loves creating mods for VR Games and Minecraft! I specialize in C#, HTML, JS, CSS, and
+            Java. Check out my links below!</p>
         <div class="buttons">
             <a href="/Games" class="button">Games</a>
             <a href="/Links" class="button">Links</a>

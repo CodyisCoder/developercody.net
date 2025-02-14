@@ -1,0 +1,9 @@
+### Version 0.5.7 - Enhanced User Experience and UI Improvements
+
+**New Features & Enhancements:**
+
+- **Search Functionality Added to the Games Tab:**  
+  To improve usability and efficiency, a search bar has been integrated into the Games tab. Users can now quickly locate their desired games by typing keywords, making navigation faster and more intuitive.
+
+- **Revamped Secret/IP Section:**  
+  The Secret/IP section has undergone a complete visual overhaul, providing a more polished and modern look. With this update, the design is sleeker, more user-friendly, and aesthetically aligned with the overall UI, giving users a cooler and more dynamic experience when accessing sensitive information.

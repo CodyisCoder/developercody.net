@@ -141,6 +141,36 @@
             margin: 5px;
             width: 90%;
         }
+
+        .search-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-input {
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 400px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            padding: 10px 15px;
+            font-size: 1rem;
+            background-color: #00a2ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #0051ff;
+        }
     </style>
 </head>
 
@@ -174,7 +204,7 @@
                 "100% Legit Robux Vbucks Cracked Minecraft download 100% no scam real",
                 "URLS are overrated >:l",
                 "Like the last website, but without freaky stuff!",
-                "Crazy? I was crazy once. they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy. Crazy? I was crazy once. they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy. Crazy? I was crazy once. they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy. Crazy? I was crazy once. they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy.",
+                "Crazy? I was crazy once. they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy. Crazy? I was crazy once. they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy. Crazy? I was crazy once. they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy.",
                 "Probably not coded by ChatGPT",
                 "You know who you are... TUCKER",
                 "Never gonna give you up, Never gonna let you down",
@@ -231,7 +261,7 @@
             { name: "Diep.io", url: "https://diep.io/" },
             { name: "Agar.io Neocities version", url: "https://agar.neocities.org/" },
             { name: "Kour.io", url: "https://kour.io/" },
-            { name: "Slither.io", url: "http:/slither.io/" },
+            { name: "Slither.io", url: "http://slither.com/io" },
             { name: "Wormate.io", url: "https://wormate.io/" },
             { name: "BLOXD.IO", url: "https://bloxd.io/" },
             { name: "2048", url: "https://2048game.com/" },
@@ -366,22 +396,38 @@
             { name: "Search Engine (NW)", url: "https://search.brave.com/" },
         ];
 
-        function loadContent(items) {
-            document.body.innerHTML = `
+        let currentSection = '';
+
+        function loadContent(items, section) {
+            currentSection = section;
+            let contentHtml = `
                 <h1>Select an Option</h1>
                 <div class="content-container" id="contentContainer">
+                    ${section === 'games' || section === 'apps' ? `
+                        <div class="search-container">
+                            <input type="text" id="searchInput" class="search-input" placeholder="Search for ${section}">
+                            <button class="search-button" onclick="searchItems()">Search</button>
+                        </div>` : ''}
                     ${items.map(item => `<button class="button small-button" onclick="loadPage('${item.url}')">${item.name}</button>`).join('')}
                 </div>
             `;
+            document.body.innerHTML = contentHtml;
             document.getElementById("contentContainer").style.display = "block";
+        }
+
+        function searchItems() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const items = currentSection === 'games' ? games : apps;
+            const filteredItems = items.filter(item => item.name.toLowerCase().includes(query));
+            loadContent(filteredItems, currentSection);
         }
 
         function loadPage(url) {
             document.body.innerHTML = `<object type="text/html" data="${url}" style="width: 100%; height: 100vh;"></object>`;
         }
 
-        document.getElementById("launchGames").onclick = () => loadContent(games);
-        document.getElementById("launchApps").onclick = () => loadContent(apps);
+        document.getElementById("launchGames").onclick = () => loadContent(games, 'games');
+        document.getElementById("launchApps").onclick = () => loadContent(apps, 'apps');
     </script>
 
     <div class="extra-box">
