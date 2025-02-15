@@ -171,14 +171,32 @@
             });
         }
 
+        function loadContent(items, section) {
+            currentSection = section;
+            let contentHtml = `
+                <h1>Select an Option</h1>
+                <div class="content-container" id="contentContainer">
+                    ${section === 'games' || section === 'apps' ? `
+                        <div class="search-container">
+                            <input type="text" id="searchInput" class="search-input" placeholder="Search for ${section}">
+                            <button class="search-button" onclick="searchItems()">Search</button>
+                        </div>` : ''}
+                    ${items.map(item => `<button class="button small-button" onclick="loadPage('${item.url}')">${item.name}</button>`).join('')}
+                </div>
+            `;
+            document.body.innerHTML = contentHtml;
+            document.getElementById("contentContainer").style.display = "block";
+        }
+
         function searchItems() {
             const query = document.getElementById("searchInput").value.toLowerCase();
-            const filteredapps = apps.filter(game => game.name.toLowerCase().includes(query));
-            loadContent(filteredapps);
+            const items = currentSection === 'games' ? games : apps;
+            const filteredItems = items.filter(item => item.name.toLowerCase().includes(query));
+            loadContent(filteredItems, currentSection);
         }
 
         function loadPage(url) {
-            window.location.href = url;
+            document.body.innerHTML = `<object type="text/html" data="${url}" style="width: 100%; height: 100vh;"></object>`;
         }
 
         loadContent(apps);
