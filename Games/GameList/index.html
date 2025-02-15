@@ -150,6 +150,8 @@
     </div>
 
     <script>
+        let currentSection = 'games';
+
         const games = [
             { name: "Slope", url: "https://mathadventure1.github.io/slope/slope/index.html" },
             { name: "Eaglercraft ( 1.5.2 )", url: "https://sd592g.github.io/zj684od4lfg/" },
@@ -309,44 +311,26 @@
         function loadContent(items) {
             const container = document.getElementById('contentContainer');
             container.innerHTML = `
-                <h2>Select an Option</h2>
-                <div class="search-container">
-                    <input type="text" id="searchInput" class="search-input" placeholder="Search for games">
-                    <button class="search-button" onclick="searchItems()">Search</button>
-                </div>
-            `;
+            <h2>Select an Option</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search for games" oninput="searchItems()">
+                <button class="search-button" onclick="searchItems()">Search</button>
+            </div>
+        `;
 
             items.forEach(item => {
                 const button = document.createElement('button');
                 button.className = 'button small-button';
                 button.textContent = item.name;
-                button.onclick = () => loadGameContent(item.url);
+                button.onclick = () => loadPage(item.url);
                 container.appendChild(button);
             });
         }
 
-        function loadContent(items, section) {
-            currentSection = section;
-            let contentHtml = `
-                <h1>Select an Option</h1>
-                <div class="content-container" id="contentContainer">
-                    ${section === 'games' || section === 'apps' ? `
-                        <div class="search-container">
-                            <input type="text" id="searchInput" class="search-input" placeholder="Search for ${section}">
-                            <button class="search-button" onclick="searchItems()">Search</button>
-                        </div>` : ''}
-                    ${items.map(item => `<button class="button small-button" onclick="loadPage('${item.url}')">${item.name}</button>`).join('')}
-                </div>
-            `;
-            document.body.innerHTML = contentHtml;
-            document.getElementById("contentContainer").style.display = "block";
-        }
-
         function searchItems() {
             const query = document.getElementById("searchInput").value.toLowerCase();
-            const items = currentSection === 'games' ? games : apps;
-            const filteredItems = items.filter(item => item.name.toLowerCase().includes(query));
-            loadContent(filteredItems, currentSection);
+            const filteredItems = games.filter(item => item.name.toLowerCase().includes(query));
+            loadContent(filteredItems);
         }
 
         function loadPage(url) {
