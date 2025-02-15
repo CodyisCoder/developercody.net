@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apps</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://github.com/CodyisCoder/developercody.net/blob/main/bg.jpg?raw=true') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 8s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .button {
+            display: inline-block;
+            margin: 15px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+            background: linear-gradient(45deg, #0051ff, #00a2ff);
+            border: 2px solid white;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0px 5px 20px rgba(0, 140, 255, 0.8);
+        }
+
+        .button:hover {
+            transform: scale(1.15);
+            background: linear-gradient(45deg, #00a2ff, #0051ff);
+            box-shadow: 0px 10px 40px rgba(255, 255, 255, 0.8);
+        }
+
+        .button:active {
+            transform: scale(1);
+        }
+
+        .content-container {
+            width: 80%;
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+            max-height: 70vh;
+        }
+
+        .small-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin: 5px;
+            width: 90%;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-input {
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 400px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            padding: 10px 15px;
+            font-size: 1rem;
+            background-color: #00a2ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #0051ff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Apps</h1>
+    <div class="content-container" id="contentContainer">
+        <h2>Select an Option</h2>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search for apps">
+            <button class="search-button" onclick="searchItems()">Search</button>
+        </div>
+    </div>
+
+    <script>
+        const apps = [
+            { name: "CoolMathGames (W?)", url: "https://www.coolmathapps.com/" },
+            { name: "Zerogpt", url: "https://www.zerogpt.com/" },
+            { name: "DeepAI", url: "https://deepai.org/" },
+            { name: "EmulatorJS", url: "https://demo.emulatorjs.org/" },
+            { name: "Discord (NW)", url: "https://discord.com/" },
+            { name: "Github (NW)", url: "https://github.com/" },
+            { name: "Search Engine (NW)", url: "https://search.brave.com/" },
+        ];
+
+        function loadContent(items) {
+            const container = document.getElementById('contentContainer');
+            container.innerHTML = `
+                <h2>Select an Option</h2>
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search for apps">
+                    <button class="search-button" onclick="searchItems()">Search</button>
+                </div>
+            `;
+
+            items.forEach(item => {
+                const button = document.createElement('button');
+                button.className = 'button small-button';
+                button.textContent = item.name;
+                button.onclick = () => loadPage(item.url);
+                container.appendChild(button);
+            });
+        }
+
+        function searchItems() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const filteredapps = apps.filter(game => game.name.toLowerCase().includes(query));
+            loadContent(filteredapps);
+        }
+
+        function loadPage(url) {
+            window.location.href = url;
+        }
+
+        loadContent(apps);
+    </script>
+
+    <div class="extra-box">
+        <div class="button-container">
+            <button class="button" onclick="window.location.href = 'https://www.developercody.net/Games'">Back</button>
+        </div>
+    </div>
+</body>
+
+</html>
