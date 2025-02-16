@@ -147,6 +147,7 @@
             <input type="text" id="searchInput" class="search-input" placeholder="Search for games">
             <button class="search-button" onclick="searchItems()">Search</button>
         </div>
+        <div id="gameButtons"></div>
     </div>
 
     <script>
@@ -308,36 +309,32 @@
             { name: "BitPlanes", url: "https://medv.io/bit-planes/" }
         ];
 
-        function loadContent(items) {
-            const container = document.getElementById('contentContainer');
-            container.innerHTML = `
-            <h2>Select an Option</h2>
-            <div class="search-container">
-                <input type="text" id="searchInput" class="search-input" placeholder="Search for games" oninput="searchItems()">
-                <button class="search-button" onclick="searchItems()">Search</button>
-            </div>
-        `;
+        function renderAppButtons(items) {
+            const appButtonsContainer = document.getElementById('gameButtons');
+            appButtonsContainer.innerHTML = "";
 
             items.forEach(item => {
                 const button = document.createElement('button');
                 button.className = 'button small-button';
                 button.textContent = item.name;
                 button.onclick = () => loadPage(item.url);
-                container.appendChild(button);
+                appButtonsContainer.appendChild(button);
             });
         }
 
         function searchItems() {
             const query = document.getElementById("searchInput").value.toLowerCase();
             const filteredItems = games.filter(item => item.name.toLowerCase().includes(query));
-            loadContent(filteredItems);
+            renderAppButtons(filteredItems);
         }
 
         function loadPage(url) {
             document.body.innerHTML = `<object type="text/html" data="${url}" style="width: 100%; height: 100vh;"></object>`;
         }
 
-        loadContent(games);
+        window.onload = function () {
+            renderAppButtons(games);
+        };
     </script>
 
     <div class="extra-box">
