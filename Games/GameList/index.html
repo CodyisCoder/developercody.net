@@ -40,6 +40,17 @@
             animation: rainbow 8s linear infinite;
         }
 
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 8s linear infinite;
+        }
+
         @keyframes rainbow {
             0% {
                 background-position: 0% 50%;
@@ -142,7 +153,6 @@
 <body>
     <h1>Games</h1>
     <div class="content-container" id="contentContainer">
-        <h2>Select an Option</h2>
         <div class="search-container">
             <input type="text" id="searchInput" class="search-input" placeholder="Search for games">
             <button class="search-button" onclick="searchItems()">Search</button>
@@ -309,23 +319,23 @@
             { name: "BitPlanes", url: "https://medv.io/bit-planes/" }
         ];
 
-        function renderAppButtons(items) {
-            const appButtonsContainer = document.getElementById('gameButtons');
-            appButtonsContainer.innerHTML = "";
+        function renderGameButtons(items) {
+            const gameButtonsContainer = document.getElementById('gameButtons');
+            gameButtonsContainer.innerHTML = "";
 
             items.forEach(item => {
                 const button = document.createElement('button');
                 button.className = 'button small-button';
                 button.textContent = item.name;
                 button.onclick = () => loadPage(item.url);
-                appButtonsContainer.appendChild(button);
+                gameButtonsContainer.appendChild(button);
             });
         }
 
         function searchItems() {
             const query = document.getElementById("searchInput").value.toLowerCase();
             const filteredItems = games.filter(item => item.name.toLowerCase().includes(query));
-            renderAppButtons(filteredItems);
+            renderGameButtons(filteredItems);
         }
 
         function loadPage(url) {
@@ -333,7 +343,7 @@
         }
 
         window.onload = function () {
-            renderAppButtons(games);
+            renderGameButtons(games);
         };
     </script>
 
