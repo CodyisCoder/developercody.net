@@ -43,14 +43,27 @@
         }
 
         h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, red, orange, yellow, green, blue);
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: rainbow 8s linear infinite;
+          font-size: 4rem;
+          font-weight: 700;
+          margin-bottom: 20px;
+          background: linear-gradient(90deg, red, orange, yellow, green, blue);
+          background-size: 400% 400%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: rainbow 8s linear infinite;
+          transition: transform 0.15s ease-in-out, content 0.15s ease-in-out;
+        }
+
+        h1:hover {
+          transform: scale(1.1);
+        }
+
+        h1::after {
+          content: "Codeeey's Website";
+        }
+
+        h1:hover::after {
+          content: "Codeeey's NUTZZZ";
         }
 
         @keyframes rainbow {
@@ -106,7 +119,7 @@
 </head>
 
 <body>
-    <h1>Codeeey's Website</h1>
+    <h1></h1>
     <a href="/Games/GameList"><button class="button">Games</button></a>
     <a href="/Games/AppList"><button class="button">Apps</button></a>
 
