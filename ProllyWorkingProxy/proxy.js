@@ -12,7 +12,7 @@ app.use((req, res, next) => {
 
 app.get('/proxy', async (req, res) => {
     const targetUrl = req.query.url;
-    
+
     if (!targetUrl) {
         return res.status(400).send('Error: No URL provided');
     }
@@ -24,6 +24,7 @@ app.get('/proxy', async (req, res) => {
             },
         });
 
+        res.setHeader('Content-Type', 'text/html');
         res.status(200).send(response.data);
     } catch (error) {
         console.error(error);
