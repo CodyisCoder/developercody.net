@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games</title>
-
+    <title>Codeeey's Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
-
         * {
             margin: 0;
             padding: 0;
@@ -31,53 +30,29 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         h1 {
-          font-size: 4rem;
-          font-weight: 700;
-          margin-bottom: 20px;
-          background: linear-gradient(90deg, red, orange, yellow, green, blue);
-          background-size: 400% 400%;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          animation: rainbow 8s linear infinite;
-          transition: transform 0.15s ease-in-out, content 0.15s ease-in-out;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 8s linear infinite;
+            transition: transform 0.2s ease-in-out;
         }
 
         h1:hover {
-          transform: scale(1.1);
-        }
-
-        h1::after {
-          content: "Codeeey's Website";
-        }
-
-        h1:hover::after {
-          content: "Codeeey's NUTZZZ";
+            transform: scale(1.1);
         }
 
         @keyframes rainbow {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .button {
@@ -92,7 +67,7 @@
             border: 2px solid white;
             border-radius: 30px;
             cursor: pointer;
-            transition: 0.3s ease-in-out;
+            transition: 0.3s;
             box-shadow: 0px 5px 20px rgba(0, 140, 255, 0.8);
         }
 
@@ -100,10 +75,6 @@
             transform: scale(1.15);
             background: linear-gradient(45deg, #00a2ff, #0051ff);
             box-shadow: 0px 10px 40px rgba(255, 255, 255, 0.8);
-        }
-
-        .button:active {
-            transform: scale(1);
         }
 
         #randomPhrase {
@@ -115,16 +86,29 @@
             font-weight: bold;
             opacity: 0.8;
         }
+
+        .divider {
+            width: 90%;
+            height: 4px;
+            background-color: white;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
     </style>
 </head>
 
 <body>
-    <h1></h1>
-    <a href="/Games/GameList"><button class="button">Games</button></a>
-    <a href="/Games/AppList"><button class="button">Apps</button></a>
-
+    <h1>Codeeey's Web</h1>
+    <a href="/Games/GameList" class="button">Games</a>
+    <a href="/Games/AppList" class="button">Apps</a>
+    <a href="https://www.developercody.net" class="button">Back</a>
+    
+    <div class="divider"></div>
+    
+    <a id="aboutBlank" class="button">AboutBlank</a>
+    
     <div id="randomPhrase"></div>
-
+    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const phrases = [
@@ -132,54 +116,30 @@
                 "Sponsored by.... Nobody :D",
                 "(╯°□°)╯︵ ┻━┻",
                 "ಠ_ಠ",
-                "(ﾉಥ益ಥ）ﾉ ┻━┻",
-                "ლ(ಠ益ಠ)ლ",
-                ":D",
-                "( ͡° ͜ʖ ͡° )",
-                "☉_☉",
-                "・_・",
-                "ヽ༼ ಠ益ಠ ༽ﾉ",
-                "ᕙ(•̀‸•́‶)ᕗ",
-                "-_-",
-                ":0",
                 "ERROR - SRC=TROJAN_VIRUS.EXE_RUNFILE NOT FOUND",
                 "Chat is this real?",
-                "100% Legit Robux Vbucks Cracked Minecraft download 100% no scam real",
-                "URLS are overrated >:l",
-                "Like the last website, but without freaky stuff!",
-                "Crazy? I was crazy once. they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy. Crazy? I was crazy once. they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy.",
-                "Probably not coded by ChatGPT",
-                "You know who you are... TUCKER",
-                "Never gonna give you up, Never gonna let you down",
-                "ERROR(12,13): CS1002",
-                "Get out of here!",
                 "Python Sucks",
                 "Your Mom est. 2020",
-                "Capybara",
-                "Oh Crumple Buppets",
-                "Does anyone read these?",
-                "Worcestershire Sauce",
-                "You know what's massive?",
-                "I am Moana - Moana",
-                "Slay all Day since 461 B.C.E!",
                 "Quandale Dingle was Here",
                 "They know me as the Rizzler",
-                "Striker says slurs",
-                "Husky is a BAD CODER",
-                "K1tty kat go BRRRRRR",
                 "I know who you are KEIRA!",
                 "SKIBIDI!"
             ];
-
             document.getElementById("randomPhrase").textContent = phrases[Math.floor(Math.random() * phrases.length)];
         });
-    </script>
+                
+        function aboutBlank() {
+            var newTab = window.open('about:blank', '_blank');
+            newTab.document.open();
+            newTab.document.write(document.documentElement.innerHTML);
+            newTab.document.close();
+        };
 
-    <div class="extra-box">
-        <div class="button-container">
-            <button class="button" onclick="window.location.href = 'https://www.developercody.net'">Back</button>
-        </div>
-    </div>
+        document.getElementById("aboutBlank").addEventListener("click", function(e) {
+            e.preventDefault();
+            aboutBlank();
+        });
+    </script>
 </body>
 
 </html>
